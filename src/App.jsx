@@ -7,6 +7,7 @@ function App() {
   return (
     <>
       <Header></Header>
+      <hr className='mb-5'/>
       <Blogs></Blogs>
     </>
   )

@@ -1,8 +1,8 @@
 import bookmarkIcon from "../../assets/bookmarkIcon.svg"
 import PropTypes from 'prop-types'
 
-const Blog = ({blog, addToBookmarks, addToReadingTime}) => {
-    const {cover, author, author_img, title, posted_date, hashtags, reading_time} = blog;
+const Blog = ({blog, addToBookmarks, markAsRead}) => {
+    const {id, cover, author, author_img, title, posted_date, hashtags, reading_time} = blog;
     return (
         <div>
             <div className="w-full p-3">
@@ -27,7 +27,7 @@ const Blog = ({blog, addToBookmarks, addToReadingTime}) => {
                     <p className="">#{hashtags[0]}</p>
                     <p className="">#{hashtags[1]}</p>
                 </div>
-                <button onClick={() => addToReadingTime(reading_time)}><span href="" className="text-blue-700 underline font-semibold">Mark as read</span></button>
+                <button onClick={() => markAsRead(id, reading_time)}><span href="" className="text-blue-700 underline font-semibold">Mark as read</span></button>
             </div>
         </div>
     );
@@ -36,7 +36,7 @@ const Blog = ({blog, addToBookmarks, addToReadingTime}) => {
 Blog.propTypes = {
     blog: PropTypes.object.isRequired,
     addToBookmarks: PropTypes.func.isRequired,
-    addToReadingTime: PropTypes.func.isRequired
+    markAsRead: PropTypes.func.isRequired
 }
 
 export default Blog;
